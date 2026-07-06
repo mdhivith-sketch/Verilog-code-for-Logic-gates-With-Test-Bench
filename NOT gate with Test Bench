@@ -1,0 +1,25 @@
+//DESING CODE
+
+module not_gate( input A,output Y);
+not(Y, A);
+endmodule
+
+//TEST BENCH
+module not_gate_tb;
+
+reg A;
+wire Y;
+
+not_gate c1(.A(A),.Y(Y));
+
+initial begin
+
+//(Dump file for Open EPWave after run in EDA plaground)
+  $dumpfile("not_gate.vcd");
+  $dumpvars(0, not_gate_tb);
+
+      A = 0;
+   #5;A = 1;
+   #5;$finish;
+end
+endmodule
